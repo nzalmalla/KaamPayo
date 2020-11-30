@@ -1,4 +1,4 @@
-package com.kaampayo.job_search;
+package com.kaampayo.job.search;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

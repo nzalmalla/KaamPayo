@@ -1,5 +1,5 @@
-package com.kaampayo.job_search;
-import com.kaampayo.job_search.services.MyUserDetailsService;
+package com.kaampayo.job.search;
+import com.kaampayo.job.search.api.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

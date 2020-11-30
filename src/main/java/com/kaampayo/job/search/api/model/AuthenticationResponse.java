@@ -1,4 +1,4 @@
-package com.kaampayo.job_search.models;
+package com.kaampayo.job.search.api.model;
 
 public class AuthenticationResponse {
     private final String jwt;

@@ -1,4 +1,4 @@
-package com.kaampayo.job_search.userDTBS;
+package com.kaampayo.job.search.features.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 public class UserService
 {
     @Autowired
-    UserRepository userRepository;
+    public UserRepository userRepository;
 
         public List<User> getAllUser()
     {

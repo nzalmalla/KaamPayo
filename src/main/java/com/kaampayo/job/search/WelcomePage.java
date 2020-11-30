@@ -1,7 +1,8 @@
-package com.kaampayo.job_search;
-import com.kaampayo.job_search.models.AuthenticationRequest;
-import com.kaampayo.job_search.models.AuthenticationResponse;
-import com.kaampayo.job_search.services.MyUserDetailsService;
+package com.kaampayo.job.search;
+
+import com.kaampayo.job.search.api.model.LoginRequest;
+import com.kaampayo.job.search.api.model.AuthenticationResponse;
+import com.kaampayo.job.search.api.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,15 +29,15 @@ public class WelcomePage {
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest loginRequest) throws Exception {
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
         } catch (BadCredentialsException e) {
             throw new Exception("Aye , you put wrong username or password !!!", e);
         }
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }

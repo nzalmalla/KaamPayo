@@ -1,4 +1,4 @@
-package com.kaampayo.job_search.services;
+package com.kaampayo.job.search.api.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-
     @Override
     public UserDetails loadUserByUsername(String userName) {
         return new User("angel", "1234", new ArrayList<>());
     }
+
 }
