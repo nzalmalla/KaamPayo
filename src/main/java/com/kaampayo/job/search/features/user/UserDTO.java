@@ -1,9 +1,17 @@
 package com.kaampayo.job.search.features.user;
 
+import javax.annotation.concurrent.NotThreadSafe;
+
 public class UserDTO {
+    @NotBlank(message="Enter your email")
+    @Email(message="Enter a valid email")
     private String email;
+    @NotBlank(message="Enter your password")
+    @Length(min=8, message="Password must be at least 8 characters")
     private String password;
+    @NotBlank(message="Re-enter your password")
     private String rpassword;
+    @NotBlank(message="Enter your name")
     private String name;
 
     public UserDTO() {
