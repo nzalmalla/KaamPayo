@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 @Controller
 public class AccountController {
 
-    private  static final Logger log = LoggerFactory.getLogger(AccountController.class);
+    private  static final Logger log = (Logger) LoggerFactory.getLogger(AccountController.class);
 
 @InitBinder
 public void initBinder(WebDataBinder dataBinder){
@@ -33,7 +33,8 @@ public void initBinder(WebDataBinder dataBinder){
         if (bindingResult.hasErrors()) {
             return "register";
         }
-    log.info(">> userDTO : {}", userDTO.toString());
+        log.info(">> userDTO : {}",
+                userDTO.toString());
 return "redirect:/login";
 
     }
