@@ -1,0 +1,40 @@
+---
+layout: default
+title: register
+permalink: /register
+---
+<div class="rpw justify-content-center" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class=""col col-md-5 text-center">
+<form method="post" th:action="@{/register}" th:object="${userDTO}" >
+    <h1 class="display-4">Sign Up</h1>
+
+    <div class="form-row py-1">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" th:value="*{name}">
+    </div>
+
+    <div class = "form-row py-1">
+        <label>Email</label>
+        <input type ="text" class="form-control" name="email" th:value="*{email}">
+    </div>
+
+    <div class="form-row py-1">
+        <label>Password</label>
+        <input type="password" class="form-control" name=password" th:value="*{password}">
+    </div>
+
+    <div class="form-row py-1">
+        <label>Please Enter Password Again</label>
+        <input type="password" class="form-control" name="rpassword" th:value="*{rpassword}">
+    </div>
+
+
+    <div class=""form-row py-1>
+        <button type="submit" class="btn btn-info btn-block">
+            Make Account
+        </button>
+    </div>
+</form>
+    <p class="py-2">Already have an Account? <a href="/login">Sign-In</a></p>
+</div>
+</div>
