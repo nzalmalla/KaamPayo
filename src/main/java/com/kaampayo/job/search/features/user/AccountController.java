@@ -33,7 +33,7 @@ public void initBinder(WebDataBinder dataBinder){
         if (bindingResult.hasErrors()) {
             return "register";
         }
-        log.info(">> userDTO : {}",
+        log.info(
                 userDTO.toString());
 return "redirect:/login";
 
