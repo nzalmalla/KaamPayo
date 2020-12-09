@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.logging.Logger;
 
 @Controller
@@ -27,7 +28,8 @@ public void initBinder(WebDataBinder dataBinder){
         return "register";
     }
     @PostMapping("/register")
-    public String save(@Valid UserDTO userDTO, BindingResult bindingResult){
+    public String save(@Valid
+                                   UserDTO userDTO, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "register";
         }
