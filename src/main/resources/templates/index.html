@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Job Searcher</title>
+</head>
+<body>
+<div align="center">
+
+    <h1>Job Searcher</h1>
+
+    <a href="new">Add new job</a>
+
+    <br/><br/>
+    <form th:action="@{/}">
+        Filter: <input type="text" name="keyword" id="keyword" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br/><br/>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Job ID</th>
+            <th>Company Name</th>
+            <th>Address</th>
+            <th>Wage</th>
+
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="job: ${listJobResource}">
+            <td th:text="${job.id}">Job ID</td>
+            <td th:text="${job.name}">Company Name</td>
+            <td th:text="${job.address}">Address</td>
+            <td th:text="${job.age}">Wage</td>
+            <td>
+                <a th:href="@{'/edit/' + ${job.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${job.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/}]]";
+	}
+</script>
+</body>
+</html>
